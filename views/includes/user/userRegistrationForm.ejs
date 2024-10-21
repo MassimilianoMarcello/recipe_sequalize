@@ -1,0 +1,44 @@
+<form action="/users/register" method="POST" class="register-form">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required 
+            class="input-field"
+            placeholder="Enter your email" 
+        >
+    </div>
+    
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            required 
+            class="input-field"
+            placeholder="Enter your password" 
+        >
+    </div>
+    
+    <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input 
+            type="password" 
+            id="repassword" 
+            name="repassword" 
+            required 
+            class="input-field"
+            placeholder="Confirm your password" 
+        >
+    </div>
+
+    <button 
+        type="submit" 
+        class="submit-button"
+    >
+        Register
+    </button>
+</form>

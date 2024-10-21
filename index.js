@@ -4,13 +4,14 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
+import methodOverride from 'method-override';
 
 // import middlewares
 import logger from './middleware/logger.js';
 
 // import routes
 import userRoutes from './routes/user.js';
-import bookRoutes from './routes/book.js';
+import recipeRoutes from './routes/recipe.js';
 
 // load environment variables
 dotenv.config();
@@ -27,6 +28,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(methodOverride('_method')); 
 
 // serve static files
 app.use(express.static(path.join(PATH, 'public')));
@@ -39,8 +41,8 @@ app.set('views', path.join(PATH, 'views'));
 app.use(logger);
 
 // use routes
-app.use('/api', userRoutes);
-app.use('/api', bookRoutes);
+app.use('/users', userRoutes);
+app.use('/recipes', recipeRoutes);
 
 // handle 404
 app.use('*', (req, res) => {

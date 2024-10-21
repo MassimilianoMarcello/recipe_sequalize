@@ -1,0 +1,27 @@
+<div class="recipe-details">
+    <h1><%= recipe.title %></h1> <!-- Cambiato da book.name a recipe.title -->
+    <p><strong>Description:</strong> <%= recipe.description ? recipe.description : 'No description available' %></p>
+    <p><strong>Ingredients:</strong> <%= recipe.ingredients ? recipe.ingredients : 'No ingredients listed' %></p>
+    
+    <% if (recipe.img) { %> 
+        <div class="recipe-image">
+            <img src="<%= recipe.img %>" alt="<%= recipe.title %> image"> 
+        </div>
+    <% } else { %>
+        <p>No image available</p>
+    <% } %>
+
+    <a href="/recipes/update-recipe/<%= recipe.id %>" class="update-recipe-button">
+        Update Recipe
+    </a>
+    
+    <form action="/recipes/delete-recipe/<%= recipe.id %>?_method=DELETE" method="POST" style="display:inline;">
+        <button type="submit" class="delete-recipe-button" onclick="return confirm('Are you sure you want to delete this recipe?');">
+            Delete Recipe
+        </button>
+    </form>
+
+    <button class="retour-button mt-4">
+        <a href="/recipes/recipes">Back to Recipes List</a>
+    </button>
+</div>

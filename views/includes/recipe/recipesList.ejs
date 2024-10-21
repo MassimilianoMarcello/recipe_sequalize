@@ -1,0 +1,27 @@
+<main class="container">
+    <h1>Recipes:</h1>
+    <div class="recipe-grid">
+        <% if (recipes && recipes.length > 0) { %>
+            <% recipes.forEach(recipe => { %>
+                <div class="card recipe-card">
+                    <img src="<%= recipe.img %>" alt="<%= recipe.title %>" class="recipe-image">
+                    <div class="recipe-info">
+                        <p><strong>Created by:</strong> <%= recipe.user_id %></p> <!-- Mostra l'ID dell'utente -->
+                        <p>Created by: <%= recipe.user.email %></p> <!-- Accesso all'email dell'utente -->
+   
+                        <h2><%= recipe.title %></h2>
+                        <p>Description: <%= recipe.description %></p>
+                        <p>Ingredients: <%= recipe.ingredients %></p>
+                        <a href="/recipes/recipes/<%= recipe.id %>" class="details-link">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No recipes available.</p>
+        <% } %>
+    </div>
+</main>
+
+
