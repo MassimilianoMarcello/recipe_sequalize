@@ -150,7 +150,7 @@ const recipeControllers = {
                 include: [{
                     model: User,
                     as: 'user',
-                    where: { email },  // Filtra with mail
+                    where: { email },  // Filter with mail
                     attributes: ['email'], // i can add other attributes here
                 }]
             });
