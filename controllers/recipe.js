@@ -144,22 +144,14 @@ const recipeControllers = {
     getRecipesByEmail: async (req, res) => {
         const { email } = req.params;
         const token = req.cookies.token;
-       
     
         try {
-            
-    
-            const user = await User.findOne({ where: { email } });
-            if (!user) {
-                return res.status(404).send('User not found');
-            }
-    
             const recipes = await Recipe.findAll({
-                where: { user_id: user.id },
                 include: [{
                     model: User,
-                    as: 'user', 
-                    attributes: ['email'],
+                    as: 'user',
+                    where: { email },  // Filtra direttamente per email
+                    attributes: ['email'], // Puoi anche includere altri attributi se necessario
                 }]
             });
     
@@ -171,14 +163,14 @@ const recipeControllers = {
                 title: 'Recipes for ' + email,
                 body: 'includes/recipe/recipesList',
                 recipes: recipes,
-                token,
-             
+                token
             });
         } catch (err) {
             console.error('Error fetching recipes by email:', err);
             res.status(500).send('Server Error');
         }
     },
+    
     
     
     
