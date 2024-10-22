@@ -11,7 +11,8 @@ const {
     updateRecipe,
     removeRecipe,
     addRecipeForm,
-    updateRecipeForm
+    updateRecipeForm,
+    getRecipesByEmail
 } = recipeControllers;
 
 router.get('/recipes', getAll);
@@ -22,4 +23,7 @@ router.put('/update-recipe/:id',verifyToken, updateRecipe);
 router.delete('/delete-recipe/:id',verifyToken, removeRecipe);
 router.get('/add-recipes',verifyToken, addRecipeForm);
 router.get('/update-recipe/:id',verifyToken, updateRecipeForm);
+
+// get recipe by mail
+router.get('/user/:email', getRecipesByEmail);
 export default router;

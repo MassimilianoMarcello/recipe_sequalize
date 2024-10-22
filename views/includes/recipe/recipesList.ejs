@@ -6,9 +6,15 @@
                 <div class="card recipe-card">
                     <img src="<%= recipe.img %>" alt="<%= recipe.title %>" class="recipe-image">
                     <div class="recipe-info">
-                        <p><strong>Created by:</strong> <%= recipe.user_id %></p> <!-- Mostra l'ID dell'utente -->
-                        <p>Created by: <%= recipe.user.email %></p> <!-- Accesso all'email dell'utente -->
-   
+                        <p><strong>Created by:</strong> <%= recipe.user_id %></p> 
+                        <p>
+                            Created by: 
+                            <% if (recipe.user) { %>
+                                <a href="/recipes/user/<%= recipe.user.email %>"><%= recipe.user.email %></a> 
+                            <% } else { %>
+                                Unknown User
+                            <% } %>
+                        </p>
                         <h2><%= recipe.title %></h2>
                         <p>Description: <%= recipe.description %></p>
                         <p>Ingredients: <%= recipe.ingredients %></p>
@@ -23,5 +29,3 @@
         <% } %>
     </div>
 </main>
-
-

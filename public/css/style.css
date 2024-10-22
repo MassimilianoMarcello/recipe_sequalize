@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f0f8ff;
+}
+
+header {
+    background: #ff6347;
+    color: #ffffff;
+    padding: 2rem 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.site-title {
+    font-size: 1.8rem;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-menu li {
+    margin-left: 2rem;
+}
+
+.navbar-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+    color: #ffd700;
+}
+
+.container {
+    max-width: 120rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.8rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-field {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    transition: border 0.3s;
+}
+
+.input-field:focus {
+    border-color: #ff6347;
+}
+
+.button,
+.submit-button,
+.retour-button {
+    background: #ff6347;
+    color: #ffffff;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.submit-button:hover,
+.retour-button:hover,
+.button:hover {
+    background: #ff4500;
+}
+
+.recipe-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.recipe-card {
+    background: #fffaf0;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    width: calc(33.333% - 2rem);
+    transition: transform 0.3s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-0.5rem);
+}
+
+.recipe-image {
+    width: 100%;
+    height: auto;
+}
+
+.recipe-info {
+    padding: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #ff6347;
+    color: #ffffff;
+}
+
+footer {
+    background: #ff6347;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 48rem) {
+    .recipe-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 60rem) {
+    .recipe-card {
+        width: calc(50% - 2rem);
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+    }
+
+    .navbar-menu li {
+        margin: 0.5rem 0;
+    }
+}
+
