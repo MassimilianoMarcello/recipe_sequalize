@@ -150,8 +150,8 @@ const recipeControllers = {
                 include: [{
                     model: User,
                     as: 'user',
-                    where: { email },  // Filtra direttamente per email
-                    attributes: ['email'], // Puoi anche includere altri attributi se necessario
+                    where: { email },  // Filtra with mail
+                    attributes: ['email'], // i can add other attributes here
                 }]
             });
     
