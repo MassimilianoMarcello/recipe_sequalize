@@ -1,13 +1,8 @@
 <div class="recipe-details">
-    <h1><%= recipe.title %></h1> <!-- Cambiato da book.name a recipe.title -->
+    <h1><%= recipe.title %></h1> 
     <p><strong>Description:</strong> <%= recipe.description ? recipe.description : 'No description available' %></p>
     <p><strong>Ingredients:</strong> <%= recipe.ingredients ? recipe.ingredients : 'No ingredients listed' %></p>
-    Created by: 
-    <% if (recipe.user) { %>
-        <a href="/recipes/user/<%= recipe.user.email %>"><%= recipe.user.email %></a> 
-    <% } else { %>
-        Unknown User
-    <% } %>
+   
     <% if (recipe.img) { %> 
         <div class="recipe-image">
             <img src="<%= recipe.img %>" alt="<%= recipe.title %> image"> 
